@@ -1,0 +1,64 @@
+/** \file Changelog.txt 
+ * 
+ * \section v1 Version 0.6.1
+ * - Solved bug in MultiRBFInterpolatorPU(H), however now there is a new template argument for the
+ * output dimension.
+ * - new header files RBFInterpolators.h and MultiRBFInterpolators.h that bring all respective
+ * RBFInterpolators into scope. 
+ * - new header file to include all RBFs at once.
+ * - tools and utility headers are now in the folder tools
+ * - updated example.cpp to include the MultiRBFInterpolators.
+ * - some smaller cleanup in code.
+ * - new public functions NDInterpolator::MultiRBFInterpolatorH::getInterpMatrix and
+ *   NDInterpolator::MultiRBFInterpolatorH::getData that return the interpolation matrix for a
+ *   certain shape parameter c and the data that was used to build the interpolation object 
+ *   respectively.
+ *
+ * \section v2 Version 0.7 (16.02.2011)
+ * - Serialization support for all non PU interpolators, see NDInterpolator::saveRBFInterp and
+ * NDInterpolator::loadRBFInterp defined in utility.h for details. Uses the boost::serialization
+ * library. Basically the state of an interpolator can be saved to a text file which in turn can 
+ * be used to initialize an interpolator without solving the interpolation system.
+ * - All RBFInterpolators are now templated and can be used with all available RBFs. 
+ * - Documentation update. 
+ * - Example update. 
+ *
+ * \section v3 Version 0.7.1 (18.02.2011)
+ * - Serialization support for PU interpolators.
+ * - Serialization support can be turned off by specifying 
+ * \verbatim -D _WITHOUT_SERIALIZATION_ \endverbatim as g++ compiler flag.
+ * - Minor changes to includes and documentation update.
+ * 
+ * \section v4 Version 0.8 (25.02.2011)
+ * - Shape parameter optimization implemented, see NDInterpolator::BrentsMethod and the example
+ * provided in optShape.cpp. Shape optimization is possible only for non PU interpolators
+ * - A makefile is provided for the examples.
+ * - Some doc updates.  
+ *
+ * \section v5 Version 0.8.5 (03.03.2011)
+ * - New member method for all (Multi)RBFInterpolators: see for example 
+ * NDInterpolator::RBFInterpolator::optimizeScale. For PU interpolators the method optimizes the 
+ * shape parameter in each patch independently. 
+ *
+ * \section v6 Version 0.8.6 (12.05.2011)
+ * - Got rid of warnings related to comparing doubles with == and !=. See 
+ * NDInterpolator::compFloat in utility.h
+ * - Added header MoReTools.h for building interpolators based on data from Jochen Siehr's model
+ * reduction toolkit. 
+ * 
+ * \section v7 Version 0.8.7 (16.06.2011)
+ * - Implementation of CppAD support in interpCppADOperation.h. CppAD can now be used to evaluate 
+ * the interpolator and its derivative up to second order. See also CppADExample.cpp. 
+ * - Minor cleanup of the example directory.
+ *
+ * \section v8 Version 0.8.8 (08.02.2012)
+ * - Cleanup and rename *.h to *.hpp
+ * - Extended CppAD support by including interpCppADSettings.hpp to enable passing interpolator type
+ * and vector type
+ * - NDInterpolator and MultiNDInterpolator are not virtuell base clases anymore
+ * - Speed enhancements especially for MultiNDInterpolatorH and MultiNDInterpolatorPUH
+ * - Also only in this classes added methods evalFuncAndJac
+*/
+ 
+
+

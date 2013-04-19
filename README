@@ -1,0 +1,7 @@
+NDInterpolator is a library aimed at general n-dimensional interpolation in the 
+Lagrange and the Hermite Case.
+
+More information plus building and using instructions  and change-log can be found in 
+doc/html/index.html
+
+11.11.2010 Marcel Rehberg
